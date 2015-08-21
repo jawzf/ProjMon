@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SendEmail extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-    int cid;int mess;
+    String cid;int mess;
     String mssg;
 // @see HttpServlet#HttpServlet()
  public SendEmail()
@@ -94,8 +94,8 @@ Session session = Session.getInstance(props, auth);
 	// @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  cid=Integer.parseInt(request.getParameter("cid"));
-		  mess=Integer.parseInt(request.getParameter("message"));
+		  cid=request.getParameter("custid");
+		  mess=Integer.parseInt(request.getParameter("status"));
  	if(mess==1)
  	{
  mssg="Dear Customer,\n This message is sent to bring to your attention that your Device is down and has been scheduled to be serviced";

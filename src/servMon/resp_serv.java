@@ -44,23 +44,23 @@ System.out.println("hello");
 			Statement s=conn.createStatement();
 			
 			System.out.println("here");
-			
-			int eqp_id= Integer.parseInt(request.getParameter("e_id"));
+			String cust_id=request.getParameter("custid");
+			String eqp_id= request.getParameter("equipid");
 			System.out.println("eqpid:"+eqp_id);
 				
-			request.setAttribute("equip_id", eqp_id);
+			request.setAttribute("custid", cust_id);
 			request.setAttribute("status", 2);
 			
-		s.executeUpdate("update kar set age=19 where no="+eqp_id);	
+		s.executeUpdate("update statusTable set status='UP' where EQUIPID="+eqp_id);	
 			System.out.println("updated");
 				
 			System.out.println(eqp_id);
 			
-			s.executeUpdate("delete from down_table where equip_id="+eqp_id);
+			s.executeUpdate("delete from downTable where equipid="+eqp_id);
 						
 			ServletContext sc = request.getServletContext();
 			
-	RequestDispatcher rd =sc.getRequestDispatcher("/temp");
+	RequestDispatcher rd =sc.getRequestDispatcher("/SendEmail");
 					rd.forward(request, response);
 		}
 		
