@@ -30,7 +30,7 @@ public class contRun extends TimerTask {
 				
 				try
 				{
-					URL url = new URL("/EmailServlet?custid="+rs.getString(2)+"&msg=1");
+					URL url = new URL("http://localhost:8099/MonitServ/SendEmail?custid="+rs.getString(2)+"&status=1");
 					
 					
 					BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream())); 

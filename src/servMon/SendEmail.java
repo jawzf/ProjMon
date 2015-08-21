@@ -62,11 +62,12 @@ public class SendEmail extends HttpServlet {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 		   Connection con =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
 		    Statement st = con.createStatement();
-		    ResultSet rs =st.executeQuery("select cemail from statusTable where cusid= "+cid);
+		    ResultSet rs =st.executeQuery("select email from statusTable where custid= "+cid);
  		   
  		    while(rs.next())
  		    {
- 		    	toEmail=rs.getString("cemail");
+ 		    	System.out.println(rs.getString(4));
+ 		    	toEmail=rs.getString(4);
  		    }           
 Session session = Session.getInstance(props, auth);
 
