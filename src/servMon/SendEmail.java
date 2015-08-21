@@ -62,7 +62,7 @@ public class SendEmail extends HttpServlet {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 		   Connection con =DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "scott", "tiger");
 		    Statement st = con.createStatement();
-		    ResultSet rs =st.executeQuery("select email from statusTable where custid= "+cid);
+		    ResultSet rs =st.executeQuery("select email from statusTable where custid= '"+cid+"'");
  		   
  		    while(rs.next())
  		    {
@@ -97,6 +97,7 @@ Session session = Session.getInstance(props, auth);
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  cid=request.getParameter("custid");
 		  mess=Integer.parseInt(request.getParameter("status"));
+		  System.out.println(cid);
  	if(mess==1)
  	{
  mssg="Dear Customer,\n This message is sent to bring to your attention that your Device is down and has been scheduled to be serviced";
@@ -109,8 +110,7 @@ Session session = Session.getInstance(props, auth);
  	{
  		mssg="Dear Customer,\n This message is sent to bring to your attention that The device has been serviced and should be running properly";
  	}
- 	SendEmail obj=new SendEmail();
-		obj.send(mssg);
+ 	send(mssg);
 }
 	
 }
