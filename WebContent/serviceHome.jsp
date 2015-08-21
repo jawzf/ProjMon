@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Monitoring UI</title>
 <script type="text/javascript"
 	src="http://maps.google.com/maps/api/js?sensor=false">
 	
@@ -17,7 +17,7 @@
 	var map=null;
 	function loadData() {
 		$.ajax({
-			url : "LatLongservlet",
+			url : "mapServlet",
 			type : 'GET',
 			datatype: 'json',
 			success : function(result) {
@@ -91,7 +91,7 @@
 </script>
 </head>
 <body onload="getMap()">
-<%response.setIntHeader("Refresh", 10); %>
+<%response.setIntHeader("Refresh", 15); %>
 	<div id="map" style="width: 600px; height: 600px; margin-top: 10px;"></div>
 </body>
 </html>

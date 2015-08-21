@@ -39,7 +39,7 @@ public class SendEmail extends HttpServlet {
 
      try{
          final String fromEmail = "wemonitor.verizon@gmail.com"; //requires valid gmail id
-         final String password = "Weshallpass"; // correct password for gmail id
+         final String password = ""; // correct password for gmail id
          String toEmail = ""; // can be any email id 
 
          System.out.println("TLSEmail Start");

@@ -25,7 +25,7 @@ import javax.json.JsonValue;
 /**
  * Servlet implementation class LatLongservlet
  */
-@WebServlet("/LatLongservlet")
+@WebServlet("/mapServlet")
 public class mapServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 static Timer timer;
@@ -72,8 +72,9 @@ static Timer timer;
 	public static String getLatLongPositions(String address) throws Exception {
 		int responseCode = 0;
 		String arr="";
-		String api = "http://maps.googleapis.com/maps/api/geocode/json?address="
-				+ URLEncoder.encode(address, "UTF-8") + "&sensor=true";
+		String api = "https://maps.googleapis.com/maps/api/geocode/json?address="
+				+ URLEncoder.encode(address, "UTF-8") + "&sensor=true&key=";
+		System.out.println("EDIT CODE WITH API KEY");
 		URL url = new URL(api);
 		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
 		httpConnection.connect();
