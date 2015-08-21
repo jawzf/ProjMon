@@ -26,11 +26,11 @@ public class contRun extends TimerTask {
 			
 			while(rs.next())
 			{
-				System.out.println("Check:"+rs.getInt(1)+" "+rs.getInt(2)+" "+rs.getString(3));
+				System.out.println("Check:"+rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
 				
 				try
 				{
-					URL url = new URL("http://localhost:8079/MonitServ/EmailServlet?custid="+rs.getInt(2)+"&msg=1");
+					URL url = new URL("/EmailServlet?custid="+rs.getString(2)+"&msg=1");
 					
 					
 					BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream())); 
@@ -50,11 +50,13 @@ public class contRun extends TimerTask {
 				{
 					
 					
-				String query="INSERT INTO downTable values(?,?,?)";
+				String query="INSERT INTO downTable values(?,?,?,?,?)";
 				PreparedStatement ps=con.prepareStatement(query);
-				ps.setInt(1, rs.getInt(1));
-				ps.setInt(2, rs.getInt(2));
+				ps.setString(1, rs.getString(1));
+				ps.setString(2, rs.getString(2));
 				ps.setString(3, rs.getString(3));
+				ps.setString(4, rs.getString(4));
+				ps.setString(5, rs.getString(5));
 				ps.executeUpdate();
 				ps.close();
 				}

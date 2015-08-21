@@ -49,7 +49,7 @@ System.out.println("hello");
 			System.out.println("eqpid:"+eqp_id);
 				
 			request.setAttribute("custid", cust_id);
-			request.setAttribute("status", 2);
+			request.setAttribute("status", 3);
 			
 		s.executeUpdate("update statusTable set status='UP' where EQUIPID="+eqp_id);	
 			System.out.println("updated");
