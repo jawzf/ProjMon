@@ -1,13 +1,6 @@
 package servMon;
 
 
-/*
- * CHECK THIS CODE WITH KARTHIKA FIRST :D
- * LINK THE CODE PROPERLY TOMORROW!
- * 
- * 
- * 
- */
 
 
 import java.io.IOException;
