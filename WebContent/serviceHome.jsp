@@ -68,7 +68,7 @@
 					google.maps.event.addListener(marker, 'click', (function(
 							marker, i) {
 						return function() {
-							 infoWindow.setContent(markers[i][0]+"<br>"+"<form method=\"post\">" +
+							 infoWindow.setContent(markers[i][0]+"<br>"+"<form method=\"post\"> action=\"techServ\"" +
 							 "<select>"+
 							 "<option>a</option>"+
 							 "<option>b</option>"+
@@ -92,6 +92,8 @@
 </head>
 <body onload="getMap()">
 <%response.setIntHeader("Refresh", 15); %>
-	<div id="map" style="width: 600px; height: 600px; margin-top: 10px;"></div>
+<h1 align="center">Network Monitoring Status</h1>
+<h3 align="right"><a href="LoginForm">Logout</a></h3>
+	<center><div id="map" style="width: 600px; height: 600px; margin-top: 10px;"></div></center>
 </body>
 </html>
