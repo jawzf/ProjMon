@@ -66,8 +66,8 @@ public class SendEmail extends HttpServlet {
  		   
  		    while(rs.next())
  		    {
- 		    	System.out.println(rs.getString(4));
- 		    	toEmail=rs.getString(4);
+ 		    	System.out.println(rs.getString("EMAIL"));
+ 		    	toEmail=rs.getString("EMAIL");
  		    }           
 Session session = Session.getInstance(props, auth);
 
