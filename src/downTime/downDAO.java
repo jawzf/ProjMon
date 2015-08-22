@@ -3,6 +3,8 @@ package downTime;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import dbConnection.ConnectionProvider;
+
 public class downDAO {
 	String eqid;
 	
