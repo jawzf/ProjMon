@@ -32,42 +32,22 @@ public class resp_serv extends HttpServlet {
 	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-System.out.println("hello");
-		
-		Connection conn=null;
-		try
-		{
-			System.out.println("hi");
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","scott","tiger");
-			
-			Statement s=conn.createStatement();
-			
-			System.out.println("here");
-			String cust_id=request.getParameter("custid");
-			String eqp_id= request.getParameter("equipid");
-			System.out.println("eqpid:"+eqp_id);
+		System.out.println("hello");
 				
-			request.setAttribute("custid", cust_id);
-			request.setAttribute("status", 3);
+		String cust_id=request.getParameter("custid");
+		String eqp_id= request.getParameter("equipid");
+		System.out.println("eqpid:"+eqp_id);
 			
-		s.executeUpdate("update statusTable set status='UP' where EQUIPID="+eqp_id);	
-			System.out.println("updated");
-				
-			System.out.println(eqp_id);
-			
-			s.executeUpdate("delete from downTable where equipid="+eqp_id);
-						
-			ServletContext sc = request.getServletContext();
-			
-	RequestDispatcher rd =sc.getRequestDispatcher("/SendEmail");
-					rd.forward(request, response);
-		}
+		ResponseClass rc=new ResponseClass(eqp_id);
+		rc.jobUpdate();
 		
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}	
+		
+		request.setAttribute("custid", cust_id);
+		request.setAttribute("status", 3);
+		ServletContext sc = request.getServletContext();
+		
+		RequestDispatcher rd =sc.getRequestDispatcher("/SendEmail");
+		rd.forward(request, response);
 	}
 	
 	
