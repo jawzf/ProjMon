@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/DownClass")
-public class DownClass extends HttpServlet {
+public class DownServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     

@@ -12,13 +12,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.TimerTask;
 
+import dbConnection.ConnectionProvider;
+
 public class contRun extends TimerTask {
 	public void getData()
 	{//comment
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");  
-			Connection con=DriverManager.getConnection( "jdbc:oracle:thin:@localhost:1521:orcl","scott","tiger"); 
+			
+			Connection con=ConnectionProvider.getCon();
 			Statement stmt=con.createStatement();  
 			System.out.println("Initialised!");
 			ResultSet rs=stmt.executeQuery("select * from statusTable where status='DOWN' minus select * from downTable");
@@ -67,7 +69,7 @@ public class contRun extends TimerTask {
 				}
 				
 			}
-		} catch (SQLException|ClassNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			

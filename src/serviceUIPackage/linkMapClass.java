@@ -1,9 +1,11 @@
-package servMon;
+package serviceUIPackage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import dbConnection.ConnectionProvider;
 
 public class linkMapClass {
 
@@ -13,8 +15,8 @@ public class linkMapClass {
 		int d=0;
 		String b[]=new String[30];
 		try{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "scott","tiger");
+			
+			Connection con = ConnectionProvider.getCon();
 			PreparedStatement ps = con.prepareStatement("select equipid,address from downTable where status='DOWN'");
 			ResultSet rs = ps.executeQuery();
 			PreparedStatement ps1 = con.prepareStatement("select count(address) from downTable where status='DOWN'");

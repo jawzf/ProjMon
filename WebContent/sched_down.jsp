@@ -10,7 +10,7 @@
 <center>
 <h2>Schedule Downtime</h2>
 
-<form name="sched" action="DownClass" method="post">
+<form name="sched" action="DownServlet" method="post">
 <table>
 
 <tr>

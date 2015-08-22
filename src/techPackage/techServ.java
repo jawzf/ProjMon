@@ -1,4 +1,4 @@
-package servMon;
+package techPackage;
 
 import java.io.IOException;
 import java.sql.*;
