@@ -12,7 +12,7 @@ String username=request.getParameter("username");
 String password=request.getParameter("password");
 if(username.equals("admin")&& password.equals("admin"))
 		{
-			response.sendRedirect("serviceHome.jsp");
+			response.sendRedirect("MonitorUI.jsp");
 		}
 else
 {
