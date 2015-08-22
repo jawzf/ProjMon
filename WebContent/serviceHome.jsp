@@ -89,11 +89,22 @@
 			}
 			
 </script>
+<script>
+function popitup(link) {
+	  var w = window.open(link.href,
+	        link.target||"_blank",
+	        'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,dependent,width=500,height=250,left=0,top=0');
+	  return w?false:true; // allow the link to work if popup is blocked
+	 }
+</script>
 </head>
 <body onload="getMap()">
 <%response.setIntHeader("Refresh", 15); %>
-<h1 align="center">Network Monitoring Status</h1>
 <h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
-	<center><div id="map" style="width: 800px; height: 480px; margin-top: 10px;"></div></center>
+<h1 align="center">Network Monitoring Status</h1>
+
+	<center><div id="map" style="width: 800px; height: 480px; margin-top: 10px;"></div></center><br>
+	<br>
+	<center><b><a href="sched_down.jsp" onclick="return popitup(this)">Schedule Downtime</a></b></center>
 </body>
 </html>
