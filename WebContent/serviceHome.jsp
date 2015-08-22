@@ -69,10 +69,10 @@
 							marker, i) {
 						return function() {
 							 infoWindow.setContent(markers[i][0]+"<br>"+"<form method=\"post\"> action=\"techServ\"" +
-							 "<select>"+
-							 "<option>a</option>"+
-							 "<option>b</option>"+
-							 "<option>c</option></select>"+
+							 "<select name=\"technician_id\">"+
+							 "<option>T01501</option>"+
+							 "<option>T01502</option>"+
+							 "<option>T01503</option></select>"+
 							 "<br><br>"+
 							 "<input type=\"button\" value=\"Submit\">"+
 							 "</form>");
@@ -94,6 +94,6 @@
 <%response.setIntHeader("Refresh", 15); %>
 <h1 align="center">Network Monitoring Status</h1>
 <h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
-	<center><div id="map" style="width: 600px; height: 600px; margin-top: 10px;"></div></center>
+	<center><div id="map" style="width: 800px; height: 480px; margin-top: 10px;"></div></center>
 </body>
 </html>

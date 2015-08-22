@@ -52,7 +52,11 @@ public class techServ extends HttpServlet {
 		// TODO Auto-generated method stub
 		 
 		String equip_id=request.getParameter("equipID");
-		String technician_id=request.getParameter("technicianID");
+		String technician_id=request.getParameter("technician_id");
+		
+		techClassPost tcp=new techClassPost(equip_id,technician_id);
+		tcp.dbQueries();
+		System.out.println("Assigned");
 
 		
 		
