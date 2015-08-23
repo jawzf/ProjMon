@@ -12,8 +12,10 @@
 
 var txt;
 var jSON;
-function check()
+var cont;
+function check(conta)
 {
+	cont=conta;
 	
 	$.ajax({
 		url : "techServ",
@@ -26,10 +28,29 @@ function check()
 		{
 			console.log(jqxhr.responseText);
 			txt=jqxhr.responseText;
+			jSON=JSON.parse(txt);
+			createSel();
 		}
 	});
 	}
-jSON=JSON.parse(txt);
+	
+function createSel()
+{
+	var newDiv=document.createElement('div');
+	var html = '<select name=\'equipid\'>',i;
+	
+	for(i = 0; i < dates.length; i++) {
+	       html += "<option value='"+jSON[i].equipID+"'>"+json[i].address+"</option>";
+	   }
+	
+	html += '</select>';
+	   newDiv.innerHTML= html;
+	   document.getElementById(divname).appendChild(newDiv);
+	   
+	   document.getElementById("subBtn").style.visibility = "hidden";
+	
+	
+	}
 
 
 </script>
@@ -40,12 +61,15 @@ jSON=JSON.parse(txt);
 </head>
 <body>
 <center>
+<h2>Technician's Tool</h2>
 <form action="techServ" method=post>
 Enter your Technician ID:<input type="text" name="technicianID"><br>
-<input type=button value="Scan for Jobs" id="scanBtn" onClick="check()">
+<input type=button value="Scan for Jobs" id="scanBtn" onClick="check('infodiv')">
 </form>
+<form action=respServ method=post>
 <div id="infodiv"></div>
-
+<input type=submit value="Job Done" id="subBtn" style="visibility:hidden">
+</form>
 
 </center>
 

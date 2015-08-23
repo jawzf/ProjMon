@@ -9,7 +9,7 @@ import dbConnection.ConnectionProvider;
 public class GetCID {
 String eqid,custid="";
 	
-	GetCID(String eqid) {
+	public GetCID(String eqid) {
 		this.eqid = eqid;
 	}
 

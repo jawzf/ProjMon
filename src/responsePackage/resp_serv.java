@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import downTime.GetCID;
 
 import java.sql.*;
 
@@ -34,7 +35,7 @@ public class resp_serv extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("hello");
 				
-		String cust_id=request.getParameter("custid");
+		
 		String eqp_id= request.getParameter("equipid");
 		System.out.println("eqpid:"+eqp_id);
 			
@@ -42,6 +43,9 @@ public class resp_serv extends HttpServlet {
 		rc.jobUpdate();
 		
 		
+		GetCID gc=new GetCID(eqp_id);
+		String cust_id=gc.getCid();
+				
 		request.setAttribute("custid", cust_id);
 		request.setAttribute("status", 3);
 		ServletContext sc = request.getServletContext();
