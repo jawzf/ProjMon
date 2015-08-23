@@ -9,15 +9,16 @@ import dbConnection.ConnectionProvider;
 
 public class techClassGet {
 	 Connection conn=null;
-	 String technician_id,add;
+	 String technician_id;
+	 String[] add=new String[20];
 	techClassGet(String a)
 	{
 		technician_id=a;
 		
 	}
-	public String dbConnEid()
+	public String[] dbConnEid()
 	{
-		String res="";
+		String[] res=new String[20];
 		try
 		{
 			
@@ -27,9 +28,12 @@ public class techClassGet {
 			
 			
 			ResultSet rs1=s.executeQuery("select equip_id from assignTable where technician_id="+technician_id);
-			 
-					res=rs1.getString(1);
-					
+			 int i=0;
+			while(rs1.next())
+			{
+				res[i]=rs1.getString(1);
+				i++;
+			}		
 					
 		}
 		catch(Exception e)
@@ -41,13 +45,13 @@ public class techClassGet {
 	
 	}
 	
-	public String dbConnAdd()
+	public String[] dbConnAdd()
 	{
 		String res="";
 		try
 		{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","scott","tiger");
+			
+			conn=ConnectionProvider.getCon();
 			
 			Statement s=conn.createStatement();
 			
@@ -56,7 +60,12 @@ public class techClassGet {
 					
 					ResultSet rs2=s.executeQuery("select address from downTable where equipid="+res);
 					
-					add=rs2.getString(1);
+					 int i=0;
+						while(rs2.next())
+						{
+							add[i]=rs2.getString(1);
+							i++;
+						}	
 					
 			//s.executeQuery("select address from downTable where equip_id="+equip_id);
 		}

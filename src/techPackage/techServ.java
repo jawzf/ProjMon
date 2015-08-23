@@ -2,13 +2,19 @@ package techPackage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
-
+import javax.json.JsonObject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+
+import MiscPackage.mString;
 
 /**
  * Servlet implementation class techServ
@@ -34,14 +40,46 @@ public class techServ extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String technician_id=request.getParameter("technicianID");
+		/*String technician_id=request.getParameter("technicianID");
 		
 		techClassGet tc=new techClassGet(technician_id);
-		String res=tc.dbConnEid();
-		String add=tc.dbConnAdd();
-		request.setAttribute("equipId",res);
-		request.setAttribute("addr",add);
-	
+		String res[]=tc.dbConnEid();
+		String add[]=tc.dbConnAdd();
+		int i=0;
+		while(i<res.length)
+		{
+			request.setAttribute("equipId"+i,res[i]);
+			request.setAttribute("addr"+i,add[i]);
+			i++;
+		}
+		
+		*/
+		
+		String technician_id=request.getParameter("technicianID");
+		techClassGet tc=new techClassGet(technician_id);
+		String res[]=tc.dbConnEid();
+		
+		String add[]=tc.dbConnAdd();
+		String jsonString="[";
+		int i=0;
+		while(i<res.length)
+		{
+			jsonString=jsonString+"{\"equipID\":\""+res[i]+"\"},"+"\"address\":\""+add[i]+"\"}";
+			i++;
+			if(i!=res.length-1)
+			{
+				jsonString+=",";
+			}
+			else
+				break;
+		} 
+		jsonString=mString.lastCut(jsonString);
+		jsonString=jsonString+"]";
+		  response.setContentType("application/json");
+		
+		  response.getWriter().print(jsonString);
+
+		
 	
 	}
 
