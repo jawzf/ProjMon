@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<center>
+<form action="" method=post>
+<input type=submit value="Scan for Jobs">
+</form>
+
+
+</center>
 
 </body>
 </html>
