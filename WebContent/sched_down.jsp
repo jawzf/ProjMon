@@ -25,7 +25,7 @@
 </table>
 
 
-<input type=submit value="Schedule">
+<input type=submit value="Schedule" onClick=window.close()>
 </form></center>
 </body>
 </html>

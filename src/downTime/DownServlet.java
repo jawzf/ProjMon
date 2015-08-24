@@ -18,6 +18,8 @@ public class DownServlet extends HttpServlet {
        
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		System.out.println("Check");
 		String equipID=request.getParameter("eID");
 		String startDay=request.getParameter("startDay");
@@ -43,6 +45,7 @@ public class DownServlet extends HttpServlet {
 		{
 			e.printStackTrace();
 		}
+		response.sendRedirect("close.html");
 	}
 
 }

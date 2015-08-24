@@ -12,6 +12,10 @@
 <script src="js/jquery-1.11.1.js"></script>
 
 <script>
+
+
+
+    
 	var bounds = new google.maps.LatLngBounds();
 	var markers = [];
 	var map=null;
@@ -38,11 +42,12 @@
 	 
 	function getMap() {
 		loadData();
+		
 	}
 	
 			function showMap(result) {
 				markers=JSON.parse(result);	
-			
+				
 				var latlngPos = new google.maps.LatLng(13.0826802, 80.27071840000001);
 				var myOptions = {
 					zoom : 10,
@@ -99,7 +104,7 @@ function popitup(link) {
 </script>
 </head>
 <body onload="getMap()">
-<%response.setIntHeader("Refresh", 15); %>
+<%response.setIntHeader("Refresh", 5); %>
 <h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
 <h1 align="center">Network Monitoring Status</h1>
 

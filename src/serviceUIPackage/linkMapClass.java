@@ -35,7 +35,7 @@ public class linkMapClass {
 				
 				
 			}
-			con.close();
+			
 			return a;
 			
 		} catch (Exception e) {
