@@ -97,6 +97,61 @@
 			
 </script>
 <script>
+var txt;
+var jSON;
+var cont;
+function check(conta)
+{
+	cont=conta;
+	$.ajax({
+		url : "jobServ",
+		type : 'GET',
+		datatype: 'json',
+		success : function(result) {
+			
+		},
+	complete: function(jqxhr,status)
+		{
+			console.log(jqxhr.responseText);
+			txt=jqxhr.responseText;
+			txt = txt.substring(0, txt.length - 2);
+			txt=txt+']';
+			console.log(txt);
+			
+			jSON=JSON.parse(txt);
+			createSel();
+		}
+	});
+	}
+	
+function createSel()
+{
+	var doo = document.getElementById("jobs");
+	var div = document.getElementById("infodiv").contains(doo);
+	if(!div)
+	{	
+			console.log(jSON[0].equipID+jSON[0].address);
+			var newDiv=document.createElement('div');
+			var html = '<select name=\'equipid\' id=\'jobs\'>',i;
+			
+			for(i = 0; i < jSON.length; i++) {
+			       html += "<option value='"+jSON[i].equipID+"'>"+jSON[i].equipID+"</option>";
+			   }
+			
+			html += '</select>';
+			   newDiv.innerHTML= html;
+			   document.getElementById(cont).appendChild(newDiv);
+			   
+			   document.getElementById("subBtn").style.visibility = "visible";
+	}
+	
+	}
+
+
+</script>
+
+
+<script>
 function popitup(link) {
 	  var w = window.open(link.href,
 	        link.target||"_blank",
@@ -108,11 +163,19 @@ function popitup(link) {
 <body onload="getMap()">
 <%response.setIntHeader("Refresh", 15); %>
 <% //HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
-<h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
-<h1 align="center">Network Monitoring Status</h1>
 
-	<center><div id="map" style="width: 800px; height: 480px; margin-top: 10px;"></div></center><br>
+<h2 align="center">Network Monitoring Status</h2><h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
+
+	<center><div id="map" style="width: 800px; height: 400px; margin-top: 10px;"></div></center><br>
 	<br>
+	<center>
+	<input type=button value="Show Down Devices" id="scanBtn" onClick="check('infodiv')">
+	<form action="resp_serv" method="post">
+	<div id="infodiv"></div>
+	<input type=submit value="Job Done" id="subBtn" style="visibility:hidden">
+	</form>
+	</center>
+	
 	<center><b><a href="sched_down.jsp" onclick="return popitup(this)">Schedule Downtime</a></b></center>
 
 	 </body>
