@@ -12,7 +12,7 @@ public class linkMapClass {
 	public String[] getAddresses()
 	{
 		String a[];
-		int d=0;
+		
 		String b[]=new String[30];
 		try{
 			

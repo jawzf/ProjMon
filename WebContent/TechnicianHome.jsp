@@ -16,9 +16,9 @@ var cont;
 function check(conta)
 {
 	cont=conta;
-	
+	var id=document.awesome.technicianID.value;
 	$.ajax({
-		url : "techServ",
+		url : "techServ?tID="+id,
 		type : 'GET',
 		datatype: 'json',
 		success : function(result) {
@@ -28,6 +28,10 @@ function check(conta)
 		{
 			console.log(jqxhr.responseText);
 			txt=jqxhr.responseText;
+			txt = txt.substring(0, txt.length - 2);
+			txt=txt+']';
+			console.log(txt);
+			
 			jSON=JSON.parse(txt);
 			createSel();
 		}
@@ -36,11 +40,13 @@ function check(conta)
 	
 function createSel()
 {
+	
+	console.log(jSON[0].equipID+jSON[0].address);
 	var newDiv=document.createElement('div');
 	var html = '<select name=\'equipid\'>',i;
 	
-	for(i = 0; i < dates.length; i++) {
-	       html += "<option value='"+jSON[i].equipID+"'>"+json[i].address+"</option>";
+	for(i = 0; i < jSON.length; i++) {
+	       html += "<option value='"+jSON[i].equipID+"'>"+jSON[i].address+"</option>";
 	   }
 	
 	html += '</select>';
@@ -62,7 +68,7 @@ function createSel()
 <body>
 <center>
 <h2>Technician's Tool</h2>
-<form action="techServ" method=post>
+<form name="awesome">
 Enter your Technician ID:<input type="text" name="technicianID"><br>
 <input type=button value="Scan for Jobs" id="scanBtn" onClick="check('infodiv')">
 </form>

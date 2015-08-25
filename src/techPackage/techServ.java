@@ -55,16 +55,17 @@ public class techServ extends HttpServlet {
 		
 		*/
 		
-		String technician_id=request.getParameter("technicianID");
+		String technician_id=request.getParameter("tID");
+		System.out.println("ama"+technician_id);
 		techClassGet tc=new techClassGet(technician_id);
 		String res[]=tc.dbConnEid();
-		
 		String add[]=tc.dbConnAdd();
+		System.out.println("tS:"+res[0]+add[0]);
 		String jsonString="[";
 		int i=0;
 		while(i<res.length)
 		{
-			jsonString=jsonString+"{\"equipID\":\""+res[i]+"\"},"+"\"address\":\""+add[i]+"\"}";
+			jsonString=jsonString+"{\"equipID\":\""+res[i]+"\","+"\"address\":\""+add[i]+"\"}";
 			i++;
 			if(i!=res.length-1)
 			{
@@ -75,6 +76,7 @@ public class techServ extends HttpServlet {
 		} 
 		jsonString=mString.lastCut(jsonString);
 		jsonString=jsonString+"]";
+		System.out.println(jsonString);
 		  response.setContentType("application/json");
 		
 		  response.getWriter().print(jsonString);
