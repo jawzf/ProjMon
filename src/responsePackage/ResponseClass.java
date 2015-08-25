@@ -32,12 +32,13 @@ public class ResponseClass {
 			System.out.println("here");
 			
 			
-			s.executeUpdate("update statusTable set status='UP' where EQUIPID="+eqp_id);	
+			s.executeUpdate("update statusTable set status='UP' where EQUIPID='"+eqp_id+"'");	
 			System.out.println("updated");
 				
 			System.out.println(eqp_id);
 			
-			s.executeUpdate("delete from downTable where equipid="+eqp_id);
+			s.executeUpdate("delete from downTable where equipid='"+eqp_id+"'");
+			s.executeUpdate("delete from assignTable where equipid='"+eqp_id+"'");
 						
 			
 		}

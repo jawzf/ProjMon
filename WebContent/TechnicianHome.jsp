@@ -51,7 +51,7 @@ function createSel()
 	
 	html += '</select>';
 	   newDiv.innerHTML= html;
-	   document.getElementById(divname).appendChild(newDiv);
+	   document.getElementById(cont).appendChild(newDiv);
 	   
 	   document.getElementById("subBtn").style.visibility = "visible";
 	
@@ -72,7 +72,7 @@ function createSel()
 Enter your Technician ID:<input type="text" name="technicianID"><br>
 <input type=button value="Scan for Jobs" id="scanBtn" onClick="check('infodiv')">
 </form>
-<form action=respServ method=post>
+<form action="resp_serv" method="post">
 <div id="infodiv"></div>
 <input type=submit value="Job Done" id="subBtn" style="visibility:hidden">
 </form>

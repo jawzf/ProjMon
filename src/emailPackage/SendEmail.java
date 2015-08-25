@@ -36,7 +36,10 @@ public class SendEmail extends HttpServlet {
  }
    
  
-
+protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
+{
+	doGet(request,response);
+}
 
 
 	// @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
