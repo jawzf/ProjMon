@@ -105,9 +105,9 @@ function check(conta)
 		{
 			console.log(jqxhr.responseText);
 			txt=jqxhr.responseText;
-			txt = txt.substring(0, txt.length - 2);
+			txt = txt.substring(0, txt.length - 1);
 			txt=txt+']';
-			console.log(txt);
+			console.log("txt"+txt);
 			
 			jSON=JSON.parse(txt);
 			createSel();
@@ -121,7 +121,8 @@ function createSel()
 	var div = document.getElementById("infodiv").contains(doo);
 	if(!div)
 	{	
-			console.log(jSON[0].equipID+jSON[0].address);
+			
+			
 			var newDiv=document.createElement('div');
 			var html = '<select name=\'equipid\' id=\'jobs\'>',i;
 			

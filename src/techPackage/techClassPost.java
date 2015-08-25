@@ -24,12 +24,15 @@ public class techClassPost {
 		conn=ConnectionProvider.getCon();
 		
 		Statement s=conn.createStatement();
+		Statement s1=conn.createStatement();
+		Statement s2=conn.createStatement();
 		
 		s.executeUpdate("insert into assignTable values('"+equip_id+"','"+technician_id+"')");
 		
-		s.executeUpdate("update statusTable set status='IN-PROGRESS' where equip_id="+equip_id);
+		s1.executeUpdate("update statusTable set status='IN-PROGRESS' where equipid='"+equip_id+"'");
 		
-		s.executeUpdate("update downTable set status='IN-PROGRESS' where equip_id="+equip_id);
+		
+		s2.executeUpdate("update downTable set status='IN-PROGRESS' where equipid='"+equip_id+"'");
 		
 	}
 	catch(SQLException e)

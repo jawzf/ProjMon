@@ -23,13 +23,18 @@ public class jobServ extends HttpServlet {
 		
 		jobClassGet gt=new jobClassGet();
 		String res[]=gt.getEIDown();
-		System.out.println("tS:"+res[0]);
+		for(int k=0;k<res.length;k++)
+		{
+			System.out.println("jobServ:"+res[k]);
+		}
+		
+		
 		String jsonString="[";
 		int i=0;
-		while(i<res.length)
+		for(i=0;i<res.length;i++)
 		{
 			jsonString=jsonString+"{\"equipID\":\""+res[i]+"\"}";
-			i++;
+			
 			if(i!=res.length-1)
 			{
 				jsonString+=",";
@@ -37,6 +42,7 @@ public class jobServ extends HttpServlet {
 			else
 				break;
 		} 
+		
 		jsonString=mString.lastCut(jsonString);
 		jsonString=jsonString+"]";
 		System.out.println(jsonString);

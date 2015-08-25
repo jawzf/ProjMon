@@ -59,7 +59,7 @@ public class resp_serv extends HttpServlet {
 
 			System.out.println( "Email Sent:"+line );	
 
-			
+			response.sendRedirect("TechnicianHome.jsp");
 		}
 		catch(Exception e)
 		{

@@ -97,6 +97,7 @@ public class techServ extends HttpServlet {
 		techClassPost tcp=new techClassPost(equip_id,technician_id);
 		tcp.dbQueries();
 		System.out.println("Assigned");
+		response.sendRedirect("MonitorUI.jsp");
 
 		
 		
