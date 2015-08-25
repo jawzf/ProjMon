@@ -1,6 +1,7 @@
 package servMon;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 import java.util.TimerTask;
 
 import dbConnection.ConnectionProvider;
@@ -20,6 +22,13 @@ public class contRun extends TimerTask {
 		
 		try {
 			
+			InputStream iStream=contRun.class.getClassLoader().getResourceAsStream("url.properties");
+			Properties props=new Properties();
+			props.load(iStream);
+			String yoorl=props.getProperty("url");
+			String port=props.getProperty("port");	
+			
+			System.out.println(yoorl+port);
 			Connection con=ConnectionProvider.getCon();
 			Statement stmt=con.createStatement();  
 			System.out.println("Initialised!");
@@ -33,7 +42,7 @@ public class contRun extends TimerTask {
 				
 				try
 				{
-					URL url = new URL("http://localhost:8099/MonitServ/SendEmail?custid="+rs.getString(2)+"&status=1");
+					URL url = new URL("http://"+yoorl+":"+port+"/MonitServ/SendEmail?custid="+rs.getString(2)+"&status=1");
 					
 					
 					BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream())); 
