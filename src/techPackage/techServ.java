@@ -91,7 +91,7 @@ public class techServ extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		 
-		String equip_id=request.getParameter("equipID");
+		String equip_id=request.getParameter("equipid");
 		String technician_id=request.getParameter("technician_id");
 		
 		techClassPost tcp=new techClassPost(equip_id,technician_id);

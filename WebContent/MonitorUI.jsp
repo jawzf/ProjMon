@@ -73,16 +73,7 @@
 					google.maps.event.addListener(marker, 'click', (function(
 							marker, i) {
 						return function() {
-							 infoWindow.setContent(markers[i][0]+"<br>"+"<form method=\"post\" action=\"techServ\">" +
-									
-							 "<select name=\"technician_id\">"+
-							 "<option>T01501</option>"+
-							 "<option>T01502</option>"+
-							 "<option>T01503</option></select>"+
-							 "<br><br>"+
-							 "<input type=\"button\" value=\"Submit\">"+
-							 "<input type=\"hidden\" name=\"address\" value=position>"+
-							 "</form>");
+							 infoWindow.setContent(markers[i][0]+"<br>");
 							infoWindow.open(map, marker); 
 							this.setIcon('https://www.google.com/mapfiles/marker_green.png');
 							//getAddress(marker.latLng);
@@ -142,6 +133,8 @@ function createSel()
 			   newDiv.innerHTML= html;
 			   document.getElementById(cont).appendChild(newDiv);
 			   
+			   
+			   document.getElementById("rd").style.visibility = "visible";
 			   document.getElementById("subBtn").style.visibility = "visible";
 	}
 	
@@ -169,13 +162,21 @@ function popitup(link) {
 	<center><div id="map" style="width: 800px; height: 400px; margin-top: 10px;"></div></center><br>
 	<br>
 	<center>
-	<input type=button value="Show Down Devices" id="scanBtn" onClick="check('infodiv')">
-	<form action="resp_serv" method="post">
+	<input type=button value="Show Down Devices" id="scanBtn" onClick="check('infodiv')"><br>
+	<form action="techServ" method="post">
 	<div id="infodiv"></div>
-	<input type=submit value="Job Done" id="subBtn" style="visibility:hidden">
+	
+	<div id="rd" style="visibility:hidden">
+	<input name="technician_id" type=radio value="T1001" >T1001</option>
+	<input name="technician_id" type=radio value="T1002" >T1002</option>
+	<input name="technician_id" type=radio value="T1003" >T1003</option>
+	<input name="technician_id" type=radio value="T1004" >T1004</option>
+	<br>
+	</div>
+	<input type=submit value="Assign" id="subBtn" style="visibility:hidden">
 	</form>
 	</center>
-	
+	<br>
 	<center><b><a href="sched_down.jsp" onclick="return popitup(this)">Schedule Downtime</a></b></center>
 
 	 </body>
