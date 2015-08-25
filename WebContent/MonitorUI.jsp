@@ -107,13 +107,13 @@ function popitup(link) {
 </head>
 <body onload="getMap()">
 <%response.setIntHeader("Refresh", 15); %>
-<% HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
+<% //HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
 <h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
 <h1 align="center">Network Monitoring Status</h1>
 
 	<center><div id="map" style="width: 800px; height: 480px; margin-top: 10px;"></div></center><br>
 	<br>
 	<center><b><a href="sched_down.jsp" onclick="return popitup(this)">Schedule Downtime</a></b></center>
-	<input type="text" value="<%=(equipment.getAttribute("equip")).toString()%>">
+
 	 </body>
 </html>

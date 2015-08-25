@@ -3,6 +3,7 @@ package downTime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.URL;
 
 import javax.servlet.ServletException;
@@ -38,6 +39,9 @@ public class DownServlet extends HttpServlet {
 			String line = in.readLine(); 
 
 			System.out.println( "Email Sent:"+line );	
+			
+			
+			
 
 			
 		}
