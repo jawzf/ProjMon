@@ -23,6 +23,7 @@ public class contRun extends TimerTask {
 			Connection con=ConnectionProvider.getCon();
 			Statement stmt=con.createStatement();  
 			System.out.println("Initialised!");
+			StatusUpdate su=new StatusUpdate();
 			ResultSet rs=stmt.executeQuery("select * from statusTable where status='DOWN' minus select * from downTable");
 			
 			
