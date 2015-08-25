@@ -47,7 +47,7 @@ function createSel()
 	   newDiv.innerHTML= html;
 	   document.getElementById(divname).appendChild(newDiv);
 	   
-	   document.getElementById("subBtn").style.visibility = "hidden";
+	   document.getElementById("subBtn").style.visibility = "visible";
 	
 	
 	}
