@@ -124,7 +124,7 @@ function createSel()
 			
 			
 			var newDiv=document.createElement('div');
-			var html = '<select name=\'equipid\' id=\'jobs\'>',i;
+			var html = '<br><select name=\'equipid\' id=\'jobs\'>',i;
 			
 			for(i = 0; i < jSON.length; i++) {
 			       html += "<option value='"+jSON[i].equipID+"'>"+jSON[i].equipID+"</option>";
@@ -154,11 +154,11 @@ function popitup(link) {
 	 }
 </script>
 </head>
-<body onload="getMap()">
+<body onload="getMap()" background="img/bg.jpg">
 <%response.setIntHeader("Refresh", 15); %>
 <% //HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
 
-<h2 align="center">Network Monitoring Status</h2><h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
+<h2 align="center" style="color:white">Network Monitoring Status</h2><h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
 
 	<center><div id="map" style="width: 800px; height: 400px; margin-top: 10px;"></div></center><br>
 	<br>

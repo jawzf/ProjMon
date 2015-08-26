@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Network Monitoring</title>
 </head>
-<body>
+<body background="img/bg.jpg">
 <br/>
 <br/>
 <br/>

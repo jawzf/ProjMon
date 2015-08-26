@@ -6,10 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Form</title>
 </head>
-<body>
+<body background="img/bg.jpg">
 <center>
-<h2>Login</h2>
-<form action="LoginCheck.jsp">
+<br><br><br>
+<h2 style="color:white">Login</h2>
+<form action="LoginCheck.jsp" style="color:white">
 Username: <input type="text" name="username"><br><br>
 Password: <input type="password" name="password"><br><br>
 <input type="submit" value="Login"></form>
