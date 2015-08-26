@@ -44,8 +44,8 @@ public class MainServlet extends HttpServlet {
 		timer.cancel();
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		out.println("Monitoring Cancelled");
-		out.println("<form action=MainServlet method=post><input type=submit value=\"Restart Monitoring\">");
+		out.println("<html><body background=\"img/bg.jpg\" style=\"color:white\"><br><br><br><center><h1>Monitoring Cancelled</h1>");
+		out.println("<form action=MainServlet method=post><input type=submit value=\"Restart Monitoring\"></center></body></html>");
 		
 	}
 
@@ -58,7 +58,8 @@ public class MainServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		out.println("<h1>Main Servlet</h1><br><form action=MainServlet method=get><input type=submit value=\"Stop Mon\"></form>");
+		out.println("<html><body background=\"img/bg.jpg\" style=\"color:white\"><br><br><br><center><h1>Monitoring In-Process</h1>");
+		out.println("<form action=MainServlet method=get><input type=submit value=\"Stop Mon\"></form></center></body></html>");
 		timer = new Timer();
         timer.schedule(new contRun(),0, 10*1000);
       

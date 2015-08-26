@@ -6,7 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-<h2>INCORRECT LOGIN</h2>
-<a href="LoginForm.jsp">Back</a></body>
+<body background="img/bg.jpg" vlink="white" link="white">
+<center>
+<br><br>
+<h2 style="color:white">INCORRECT LOGIN</h2>
+<br>
+<br>
+<a href="LoginForm.jsp">Back</a>
+</center></body>
 </html>
