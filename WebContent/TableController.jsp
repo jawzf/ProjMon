@@ -69,7 +69,7 @@ function createSel()
 <body background="img/bg.jpg" style="color:white">
 <br><br><br>
 <center>
-<h1>Database Controller</h1>
+<h1>DATABASE CONTROLLER</h1>
 	<input type=button value="     Get EIds     " id="scanBtn" onClick="check('infodiv')"><br>
 	<form action="dbStatServlet" method="post">
 	<div id="infodiv"></div>

@@ -154,11 +154,11 @@ function popitup(link) {
 	 }
 </script>
 </head>
-<body onload="getMap()" background="img/bg.jpg">
+<body onload="getMap()" background="img/bg.jpg" vlink="white" link="white">
 <%response.setIntHeader("Refresh", 15); %>
 <% //HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
 
-<h2 align="center" style="color:white">Network Monitoring Status</h2><h3 align="right"><a href="LoginForm.jsp">Logout</a></h3>
+<h3 align="right"><a href="LoginForm.jsp" >Logout</a></h3><h2 align="center" style="color:white">NETWORK MONITORING UI</h2>
 
 	<center><div id="map" style="width: 800px; height: 400px; margin-top: 10px;"></div></center><br>
 	<br>

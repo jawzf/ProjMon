@@ -65,12 +65,14 @@ function createSel()
 
 
 </head>
-<body>
+<body background="img/bg.jpg" style="color:white">
 <center>
-<h2>Technician's Tool</h2>
+<br><br><br><br><br><br>
+<h1>TECHNICIAN'S TOOL</h1>
+<br>
 <form name="awesome">
 Enter your Technician ID:<input type="text" name="technicianID"><br>
-<input type=button value="Scan for Jobs" id="scanBtn" onClick="check('infodiv')">
+<br><input type=button value="Scan for Jobs" id="scanBtn" onClick="check('infodiv')">
 </form>
 <form action="resp_serv" method="post">
 <div id="infodiv"></div>
