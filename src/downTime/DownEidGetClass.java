@@ -1,4 +1,4 @@
-package serviceUIPackage;
+package downTime;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,10 +7,8 @@ import java.sql.Statement;
 
 import dbConnection.ConnectionProvider;
 
-public class jobClassGet {
+public class DownEidGetClass {
 	Connection conn;
-	
-	
 	public String[] getEIDown()
 	{
 		String[] res,b=new String[2];
@@ -21,10 +19,10 @@ public class jobClassGet {
 			
 			Statement s=conn.createStatement();
 			
-			ResultSet rs=s.executeQuery("select equipid from downTable where status='DOWN'");
+			ResultSet rs=s.executeQuery("select equipid from statusTable where status='UP'");
 			 int i=0;
 			 
-			 PreparedStatement ps1 = conn.prepareStatement("select count(equipid) from downTable where status='DOWN'");
+			 PreparedStatement ps1 = conn.prepareStatement("select count(equipid) from statusTable where status='UP'");
 				ResultSet rs1 = ps1.executeQuery();
 				int length=0;
 				if(rs1.next())
