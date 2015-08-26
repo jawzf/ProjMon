@@ -1,6 +1,10 @@
 package dbController;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbConnection.ConnectionProvider;
 import serviceUIPackage.jobClassGet;
 import MiscPackage.mString;
 
@@ -51,7 +56,28 @@ public class DbControllerServlet extends HttpServlet {
 		
 		
 	}
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		try
+		{
+			
+			Connection conn=ConnectionProvider.getCon();
+			
+			Statement s1=conn.createStatement(),s2=conn.createStatement();
+			
+		s1.executeUpdate("truncate table downTable");
+		s2.executeUpdate("truncate table assignTable");
+			 response.sendRedirect("TableController.jsp");
+				
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			
+		}
+		
+	
+	}
 	
 
 }

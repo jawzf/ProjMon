@@ -81,7 +81,21 @@ function createSel()
 	</div>
 	<input type=submit value="Assign" id="subBtn" style="visibility:hidden">
 	</form>
+	
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action="DbControllerServlet" method=post>
+	<input type=submit value="SOFT RESET DB">
+	</form>
+	
 	</center>
+	
+	
 
 </body>
 </html>
