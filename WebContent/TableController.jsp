@@ -92,8 +92,10 @@ function createSel()
 	<br>
 	<form action="DbControllerServlet" method=post>
 	<input type=submit value="SOFT RESET DB">
-	</form>
-	
+	</form><br><br><br><br>
+	<a href="TechnicianHome.jsp" target="_blank">Technician Home</a>
+	|<a href="LoginForm.jsp" target="_blank">Monitor UI</a>
+	|<a href="Intro.jsp" target="_blank">Monitor Config</a>
 	</center>
 	
 	
