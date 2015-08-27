@@ -1,0 +1,4 @@
+create or replace view proView as
+select ont_id as equipid,customer_id as custid from ont
+union all
+SELECT pon_port_id as equipid, customer_id as custid from ont;
