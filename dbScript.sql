@@ -10,7 +10,7 @@
   CREATE TABLE "STATUSTABLE" 
    (	"EQUIPID" VARCHAR2(20), 
 	"CUSTID" VARCHAR2(20), 
-	"ADDRESS" VARCHAR2(30), 
+	"ADDRESS" VARCHAR2(60), 
 	"EMAIL" VARCHAR2(30), 
 	"STATUS" VARCHAR2(10)
    ) ;
@@ -19,7 +19,7 @@
 --------------------------------------------------------
 
   CREATE TABLE "ASSIGNTABLE" 
-   (	"EQUIPID" VARCHAR2(20), 
+   (	"EQUIPID" VARCHAR2(20) UNIQUE, 
 	"TECHNICIANID" VARCHAR2(20)
    ) ;
 --------------------------------------------------------
@@ -29,7 +29,7 @@
   CREATE TABLE "DOWNTABLE" 
    (	"EQUIPID" VARCHAR2(20), 
 	"CUSTID" VARCHAR2(20), 
-	"ADDRESS" VARCHAR2(30), 
+	"ADDRESS" VARCHAR2(60), 
 	"EMAIL" VARCHAR2(30), 
 	"STATUS" VARCHAR2(10)
    ) ;
