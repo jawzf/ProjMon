@@ -2,3 +2,16 @@ create or replace view proView as
 select ont_id as equipid,customer_id as custid from ont
 union all
 SELECT pon_port_id as equipid, customer_id as custid from ont;
+
+
+create or replace view addView as
+select customer_id as custid,concat(concat(concat(concat(streetname,','),city),','),state) as address from customer;
+
+
+
+
+create or replace view proView as
+select equipment.equipid,equipment.custid,addview.address 
+from equipment
+left join addview
+on equipment.custid=addview.custid;

@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import pullDataPackage.pullEmailClass;
 import dbConnection.ConnectionProvider;
 
 public class StatusUpdate {
@@ -17,13 +18,13 @@ public class StatusUpdate {
 					Connection con=ConnectionProvider.getCon();
 					Statement stmt=con.createStatement();  
 					System.out.println("Initialised!");
-					ResultSet rs=stmt.executeQuery("select equipid,custid,address,email from proView minus select equipid,custid,address,email from statusTable");
-					
+					ResultSet rs=stmt.executeQuery("select equipid,custid,address from proView minus select equipid,custid,address from statusTable");
+					pullEmailClass pec=new pullEmailClass();
 					
 					while(rs.next())
 					{
 						System.out.println("Check:"+rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
-						String query="insert into statusTable values ('"+rs.getString(1)+"','"+rs.getString(2)+"','"+rs.getString(3)+"','"+rs.getString(4)+",'UP'";
+						String query="insert into statusTable values ('"+rs.getString(1)+"','"+rs.getString(2)+"','"+rs.getString(3)+"','"+pec.getEmail(rs.getString(2))+",'UP'";
 						stmt.executeUpdate(query);
 						System.out.println("done y'all");
 					}
