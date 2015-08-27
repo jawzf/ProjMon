@@ -16,8 +16,9 @@ public class techClassPost {
 		equip_id=a;
 		technician_id=b;
 	}
-	public void dbQueries()
+	public boolean dbQueries()
 	{
+		boolean m=false;
 		try
 		{
 		
@@ -34,6 +35,8 @@ public class techClassPost {
 		
 		s2.executeUpdate("update downTable set status='IN-PROGRESS' where equipid='"+equip_id+"'");
 		
+		m=true;
+		
 	}
 	catch(SQLException e)
 	{
@@ -43,6 +46,7 @@ public class techClassPost {
 	{
 		e.printStackTrace();
 	}
+		return m;
 	
 	}
 }

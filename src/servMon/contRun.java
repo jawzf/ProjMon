@@ -17,9 +17,9 @@ import java.util.TimerTask;
 import dbConnection.ConnectionProvider;
 
 public class contRun extends TimerTask {
-	public void getData()
+	public boolean getData()
 	{//comment
-		
+		boolean m=false;
 		try {
 			
 			InputStream iStream=contRun.class.getClassLoader().getResourceAsStream("url.properties");
@@ -34,11 +34,12 @@ public class contRun extends TimerTask {
 			System.out.println("Initialised!");
 			StatusUpdate su=new StatusUpdate();
 			ResultSet rs=stmt.executeQuery("select * from statusTable where status='DOWN' minus select * from downTable");
-			
+			m=true;
 			
 			while(rs.next())
 			{
 				System.out.println("Check:"+rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
+				
 				
 				try
 				{
@@ -85,7 +86,7 @@ public class contRun extends TimerTask {
 			
 		}
 		
-		
+		return m;
 	}
 	
 	public void run()
