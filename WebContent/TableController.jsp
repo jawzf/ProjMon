@@ -96,6 +96,12 @@ function createSel()
 	<a href="TechnicianHome.jsp" target="_blank">Technician Home</a>
 	|<a href="LoginForm.jsp" target="_blank">Monitor UI</a>
 	|<a href="Intro.jsp" target="_blank">Monitor Config</a>
+	
+	
+	<br><br><br><br><br><br><br>
+	Developer Option
+	<form action="tabServlet" method=post><input type=submit value="Create Tables"></form>
+	<form action="tabServlet" method=get><input type=submit value="Populate Dummy Values"></form>
 	</center>
 	
 	
