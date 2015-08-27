@@ -63,10 +63,11 @@ public class DbControllerServlet extends HttpServlet {
 			
 			Connection conn=ConnectionProvider.getCon();
 			
-			Statement s1=conn.createStatement(),s2=conn.createStatement();
+			Statement s1=conn.createStatement(),s2=conn.createStatement(),s3=conn.createStatement();
 			
 		s1.executeUpdate("truncate table downTable");
 		s2.executeUpdate("truncate table assignTable");
+		s3.executeUpdate("update statusTable set status='UP' where status='DOWN'");
 			 response.sendRedirect("TableController.jsp");
 				
 		}

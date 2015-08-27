@@ -19,9 +19,10 @@ public class SendEmailClass {
 
 
 
-	public void send(String emailMessage){
+	public boolean send(String emailMessage){
 
-	     try{
+	    boolean m=false; 
+		try{
 	         final String fromEmail = "wemonitor.verizon@gmail.com"; //requires valid gmail id
 	         final String password = "Weshallpass";// correct password for gmail id
 	         System.out.println("add password to program");
@@ -63,10 +64,13 @@ public class SendEmailClass {
 
 	         Transport.send(message);
 	         System.out.println("Mail Sent");
+	         
+	         m=true;
 	     }catch(Exception ex){
 	         System.out.println("Mail fail");
 	         System.out.println(ex);
 	     }
+		return m;
 	 }
 
 }

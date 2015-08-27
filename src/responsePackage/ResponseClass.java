@@ -18,9 +18,10 @@ public class ResponseClass {
 	}
 
 
-	public void jobUpdate()
+	public boolean jobUpdate()
 	{
 		Connection conn=null;
+		boolean m=false;
 		try
 		{
 			System.out.println("hi");
@@ -39,7 +40,7 @@ public class ResponseClass {
 			
 			s.executeUpdate("delete from downTable where equipid='"+eqp_id+"'");
 			s.executeUpdate("delete from assignTable where equipid='"+eqp_id+"'");
-						
+			m=true;		
 			
 		}
 		
@@ -47,6 +48,7 @@ public class ResponseClass {
 		{
 			e.printStackTrace();
 		}	
+		return m;
 		
 	}
 

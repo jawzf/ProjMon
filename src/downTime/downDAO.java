@@ -12,18 +12,21 @@ public class downDAO {
 		this.eqid = eqid;
 	}
 
-	public void update()
+	public boolean update()
 	{
+		boolean m=false;
 		try{  
 			Connection con=ConnectionProvider.getCon();  
 			PreparedStatement ps=con.prepareStatement("update statusTable set status='DOWN' where equipid='"+eqid+"'");  
 			
 			ps.executeUpdate();  
+			m=true;
 			}
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}  
+		} 
+		return m;
 			      
 	}
 
