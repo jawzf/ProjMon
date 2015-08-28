@@ -23,7 +23,7 @@ public class StatusUpdate {
 					
 					while(rs.next())
 					{
-						System.out.println("Check:"+rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
+						System.out.println("Check:"+rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+pec.getEmail(rs.getString(2)));
 						String query="insert into statusTable values ('"+rs.getString(1)+"','"+rs.getString(2)+"','"+rs.getString(3)+"','"+pec.getEmail(rs.getString(2))+"','UP')";
 						stmt.executeUpdate(query);
 						System.out.println("done y'all");

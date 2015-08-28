@@ -61,7 +61,7 @@ public class contRun extends TimerTask {
 				
 				try
 				{
-					
+				System.out.println("enter contRun");	
 					
 				String query="INSERT INTO downTable values(?,?,?,?,?)";
 				PreparedStatement ps=con.prepareStatement(query);
