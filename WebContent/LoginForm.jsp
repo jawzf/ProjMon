@@ -10,7 +10,7 @@
 <center>
 <br><br><br>
 <h2 style="color:white">Login</h2>
-<form action="LoginCheck.jsp" style="color:white">
+<form action="LoginCheck.jsp">
 Username: <input type="text" name="username"><br><br>
 Password: <input type="password" name="password"><br><br>
 <input type="submit" value="Login"></form>

@@ -7,8 +7,8 @@
 <meta http-equiv="Refresh" content="3;url=TableController.jsp">
 <title>Twenty Fifteen Network Monitoring</title>
 </head>
-<body background="img/bg.jpg" style="color:white">
-<center><br><br><h1>TWENTY FIFTEEN MONITORING</h1>
+<body background="img/bg.jpg">
+<center><br><br><h1 style="color:white">TWENTY FIFTEEN MONITORING</h1>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 Redirecting....
 </center>

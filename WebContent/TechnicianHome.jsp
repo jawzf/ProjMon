@@ -15,28 +15,30 @@ var jSON;
 var cont;
 function check(conta)
 {
-	cont=conta;
-	var id=document.awesome.technicianID.value;
-	$.ajax({
-		url : "techServ?tID="+id,
-		type : 'GET',
-		datatype: 'json',
-		success : function(result) {
-			
-		},
-	complete: function(jqxhr,status)
-		{
-			console.log(jqxhr.responseText);
-			txt=jqxhr.responseText;
-			txt = txt.substring(0, txt.length - 2);
-			txt=txt+']';
-			console.log(txt);
-			
-			jSON=JSON.parse(txt);
-			createSel();
-		}
-	});
-	}
+	
+			cont=conta;
+			var id=document.awesome.technicianID.value;
+			$.ajax({
+				url : "techServ?tID="+id,
+				type : 'GET',
+				datatype: 'json',
+				success : function(result) {
+					
+				},
+			complete: function(jqxhr,status)
+				{
+					console.log(jqxhr.responseText);
+					txt=jqxhr.responseText;
+					txt = txt.substring(0, txt.length - 2);
+					txt=txt+']';
+					console.log(txt);
+					
+					jSON=JSON.parse(txt);
+					createSel();
+				}
+			});
+}
+	
 	
 function createSel()
 {
@@ -65,10 +67,10 @@ function createSel()
 
 
 </head>
-<body background="img/bg.jpg" style="color:white">
+<body background="img/bg.jpg" >
 <center>
 <br><br><br><br><br><br>
-<h1>TECHNICIAN'S TOOL</h1>
+<h1 style="color:white">TECHNICIAN'S TOOL</h1>
 <br>
 <form name="awesome">
 Enter your Technician ID:<input type="text" name="technicianID"><br>

@@ -154,7 +154,7 @@ function popitup(link) {
 	 }
 </script>
 </head>
-<body onload="getMap()" background="img/bg.jpg" vlink="white" link="white">
+<body onload="getMap()" background="img/bg.jpg" vlink="grey" link="grey">
 <%response.setIntHeader("Refresh", 15); %>
 <% //HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
 

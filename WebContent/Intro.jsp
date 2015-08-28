@@ -6,13 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Network Monitoring</title>
 </head>
-<body background="img/bg.jpg" style="color:white">
+<body background="img/bg.jpg">
 <br/>
 <br/>
 <br/>
 
 <center>
-<h1>2015 MONITORING</h1>
+<h1 style="color:white">2015 MONITORING</h1>
 <form action=MainServlet method=post>
 <input type=submit value="Start Monitoring">
 </form>
