@@ -1,9 +1,13 @@
 package MiscPackage;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.Properties;
 
+import servMon.contRun;
 import dbConnection.ConnectionProvider;
 
 public class CreateTableClass {
@@ -37,6 +41,16 @@ public class CreateTableClass {
 	}
 	public void createTables()
 	{
+		InputStream iStream=contRun.class.getClassLoader().getResourceAsStream("url.properties");
+		Properties props=new Properties();
+		try {
+			props.load(iStream);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String id=props.getProperty("provId");
+			
 try {
 			
 			Connection con;
@@ -87,7 +101,7 @@ try {
 			Statement stmt; 
 		con=ConnectionProvider.getCon();
 		stmt=con.createStatement();  
-		String query="create or replace view addView as select customer_id as custid,concat(concat(concat(concat(streetname,','),city),','),state) as address from customer";
+		String query="create or replace view addView as select customer_id as custid,concat(concat(concat(concat(streetname,','),city),','),state) as address from "+id+".customer";
 		stmt.executeUpdate(query);
 		System.out.println("dTa");
 		
@@ -103,7 +117,7 @@ try {
 			Statement stmt; 
 		con=ConnectionProvider.getCon();
 		stmt=con.createStatement();  
-		String query="create or replace view equipment as select ont_id as equipid,customer_id as custid from ont union all SELECT pon_port_id as equipid, customer_id as custid from ont";
+		String query="create or replace view equipment as select ont_id as equipid,customer_id as custid from ont union all SELECT pon_port_id as equipid, customer_id as custid from "+id+".ont";
 		stmt.executeUpdate(query);
 		System.out.println("dTa");
 		
