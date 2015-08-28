@@ -79,6 +79,53 @@ try {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		//View Creation
+		
+		try {
+			
+			Connection con;
+			Statement stmt; 
+		con=ConnectionProvider.getCon();
+		stmt=con.createStatement();  
+		String query="create or replace view addView as select customer_id as custid,concat(concat(concat(concat(streetname,','),city),','),state) as address from customer";
+		stmt.executeUpdate(query);
+		System.out.println("dTa");
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
+		try {
+			
+			Connection con;
+			Statement stmt; 
+		con=ConnectionProvider.getCon();
+		stmt=con.createStatement();  
+		String query="create or replace view equipment as select ont_id as equipid,customer_id as custid from ont union all SELECT pon_port_id as equipid, customer_id as custid from ont";
+		stmt.executeUpdate(query);
+		System.out.println("dTa");
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		try {
+			
+			Connection con;
+			Statement stmt; 
+		con=ConnectionProvider.getCon();
+		stmt=con.createStatement();  
+		String query="create or replace view proView as select equipment.equipid,equipment.custid,addview.address from equipment left join addview on equipment.custid=addview.custid";
+		stmt.executeUpdate(query);
+		System.out.println("dTa");
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 	}
 	public static void main(String args[])

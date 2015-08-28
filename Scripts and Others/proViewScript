@@ -1,4 +1,4 @@
-create or replace view proView as
+create or replace view equipment as
 select ont_id as equipid,customer_id as custid from ont
 union all
 SELECT pon_port_id as equipid, customer_id as custid from ont;
@@ -15,3 +15,4 @@ select equipment.equipid,equipment.custid,addview.address
 from equipment
 left join addview
 on equipment.custid=addview.custid;
+
