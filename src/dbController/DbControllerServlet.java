@@ -67,7 +67,7 @@ public class DbControllerServlet extends HttpServlet {
 			
 		s1.executeUpdate("truncate table downTable");
 		s2.executeUpdate("truncate table assignTable");
-		s3.executeUpdate("update statusTable set status='UP' where status='DOWN'");
+		s3.executeUpdate("update statusTable set status='UP'");
 			 response.sendRedirect("TableController.jsp");
 				
 		}
