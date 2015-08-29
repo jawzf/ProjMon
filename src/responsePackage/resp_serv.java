@@ -53,28 +53,44 @@ public class resp_serv extends HttpServlet {
 		System.out.println("eqpid:"+eqp_id);
 			
 		ResponseClass rc=new ResponseClass(eqp_id);
-		rc.jobUpdate();
+		boolean ans=rc.jobUpdate();
 		
-		
-		GetCID gc=new GetCID(eqp_id);
-		String cust_id=gc.getCid();
+		if(ans)
+		{
+			GetCID gc=new GetCID(eqp_id);
+			String cust_id=gc.getCid();
+					
+			try
+			{
+				URL url = new URL("http://"+yoorl+":"+port+"/MonitServ/SendEmail?custid="+cust_id+"&status=3");
 				
-		try
-		{
-			URL url = new URL("http://"+yoorl+":"+port+"/MonitServ/SendEmail?custid="+cust_id+"&status=3");
+				
+				BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream())); 
+				String line = in.readLine(); 
+
+				System.out.println( "Email Sent:"+line );					
+							
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+			request.setAttribute("terror","Job has been done!");
+			RequestDispatcher rd=request.getRequestDispatcher("/TechnicianHome.jsp");            
+			rd.include(request, response);
 			
 			
-			BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream())); 
-			String line = in.readLine(); 
-
-			System.out.println( "Email Sent:"+line );	
-
-			response.sendRedirect("TechnicianHome.jsp");
 		}
-		catch(Exception e)
+		else
 		{
-			e.printStackTrace();
+			request.setAttribute("terror","Job has not been done!");
+			RequestDispatcher rd=request.getRequestDispatcher("/TechnicianHome.jsp");            
+			rd.include(request, response);
 		}
+		
+		
+		
 	}
 	
 	

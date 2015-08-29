@@ -154,11 +154,11 @@ function popitup(link) {
 	 }
 </script>
 </head>
-<body onload="getMap()" background="img/bg.jpg" vlink="grey" link="grey">
+<body onload="getMap()" background="img/bg.jpg" vlink="white" link="white">
 <%response.setIntHeader("Refresh", 15); %>
 <% //HttpSession equipment=request.getSession();  //(String)equip.getAttribute("equip"); %>
 
-<h3 align="right"><a href="LoginForm.jsp" >Logout</a></h3><h2 align="center" style="color:white">NETWORK MONITORING UI</h2>
+<h3 align="right" style="color:white"><a href="MonitorUI.jsp" >Refresh</a>|<a href="LoginForm.jsp" >Logout</a></h3><h2 align="center" style="color:white">NETWORK MONITORING UI</h2>
 
 	<center><div id="map" style="width: 800px; height: 400px; margin-top: 10px;"></div></center><br>
 	<br>
@@ -172,8 +172,16 @@ function popitup(link) {
 	<input name="technician_id" type=radio value="T1002" >T1002</option>
 	<input name="technician_id" type=radio value="T1003" >T1003</option>
 	<input name="technician_id" type=radio value="T1004" >T1004</option>
+	<input name="technician_id" type=radio value="T1005" >T1005</option>
+	<input name="technician_id" type=radio value="T1006" >T1006</option>
 	<br>
 	</div>
+	<%
+			String login_msg=(String)request.getAttribute("error");  
+			if(login_msg!=null)
+			out.println("<font color=red size=4px>"+login_msg+"</font>");
+			request.setAttribute("error","");
+	%><br>
 	<input type=submit value="Assign" id="subBtn" style="visibility:hidden">
 	</form>
 	</center>

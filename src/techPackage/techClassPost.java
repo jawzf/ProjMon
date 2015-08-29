@@ -41,6 +41,7 @@ public class techClassPost {
 	catch(SQLException e)
 	{
 		System.out.println("sql exception");
+		e.printStackTrace();
 	}
 	catch(Exception e)
 	{

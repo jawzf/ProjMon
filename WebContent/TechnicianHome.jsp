@@ -43,20 +43,24 @@ function check(conta)
 function createSel()
 {
 	
-	console.log(jSON[0].equipID+jSON[0].address);
-	var newDiv=document.createElement('div');
-	var html = '<select name=\'equipid\'>',i;
+	var doo = document.getElementById("equipid");
+	var div = document.getElementById("infodiv").contains(doo);
 	
-	for(i = 0; i < jSON.length; i++) {
-	       html += "<option value='"+jSON[i].equipID+"'>"+jSON[i].address+"</option>";
-	   }
-	
-	html += '</select>';
-	   newDiv.innerHTML= html;
-	   document.getElementById(cont).appendChild(newDiv);
-	   
-	   document.getElementById("subBtn").style.visibility = "visible";
-	
+	if(!div){		
+			console.log(jSON[0].equipID+jSON[0].address);
+			var newDiv=document.createElement('div');
+			var html = '<select name=\'equipid\' id=\'equipid\'>',i;
+			
+			for(i = 0; i < jSON.length; i++) {
+			       html += "<option value='"+jSON[i].equipID+"'>"+jSON[i].address+"</option>";
+			   }
+			
+			html += '</select>';
+			   newDiv.innerHTML= html;
+			   document.getElementById(cont).appendChild(newDiv);
+			   
+			   document.getElementById("subBtn").style.visibility = "visible";
+	}
 	
 	}
 
@@ -70,7 +74,7 @@ function createSel()
 <body background="img/bg.jpg" >
 <center>
 <br><br><br><br><br><br>
-<h1 style="color:white">TECHNICIAN'S TOOL</h1>
+<h1 >TECHNICIAN'S TOOL</h1>
 <br>
 <form name="awesome">
 Enter your Technician ID:<input type="text" name="technicianID"><br>
@@ -80,7 +84,13 @@ Enter your Technician ID:<input type="text" name="technicianID"><br>
 <div id="infodiv"></div>
 <input type=submit value="Job Done" id="subBtn" style="visibility:hidden">
 </form>
-
+<%
+			String login_msg=(String)request.getAttribute("terror");  
+			if(login_msg!=null)
+			out.println("<font color=red size=4px>"+login_msg+"</font>");
+			request.setAttribute("terror","");
+	%>
+<br><br><br><br><a href="TechnicianHome.jsp" >Refresh</a>
 </center>
 
 </body>

@@ -50,7 +50,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)t
 		  sday=request.getParameter("sday");
 		  eday=request.getParameter("eday");
 			  
-		  System.out.println(cid);
+		  System.out.println("EMAIL:"+cid);
  	if(mess==1)
  	{
  mssg="Dear Customer,\n This message is sent to bring to your attention that your connection is down due to a faulty device and has been scheduled to be serviced. "+

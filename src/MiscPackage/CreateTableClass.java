@@ -85,7 +85,7 @@ try {
 			Statement stmt; 
 		con=ConnectionProvider.getCon();
 		stmt=con.createStatement();  
-		String query="create table assignTable (equipID varchar(20) NOT NULL UNIQUE ,technicianID varchar(20) NOT NULL)";
+		String query="create table assignTable (equipID varchar(20) NOT NULL UNIQUE ,technicianID varchar(20) NOT NULL UNIQUE)";
 		stmt.executeUpdate(query);
 		System.out.println("dTa");
 

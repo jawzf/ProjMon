@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import javax.json.JsonObject;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -95,10 +96,20 @@ public class techServ extends HttpServlet {
 		String technician_id=request.getParameter("technician_id");
 		
 		techClassPost tcp=new techClassPost(equip_id,technician_id);
-		tcp.dbQueries();
-		System.out.println("Assigned");
-		response.sendRedirect("MonitorUI.jsp");
-
+		boolean resp=tcp.dbQueries();
+		if(resp)	
+		{
+			System.out.println("Assigned");
+			request.setAttribute("error","Job has been assigned to "+technician_id+"!");
+			RequestDispatcher rd=request.getRequestDispatcher("/MonitorUI.jsp");            
+			rd.include(request, response);
+		}
+		else
+		{
+			request.setAttribute("error","Selected Technician Unavailable");
+			RequestDispatcher rd=request.getRequestDispatcher("/MonitorUI.jsp");            
+			rd.include(request, response);
+		}
 		
 		
 
