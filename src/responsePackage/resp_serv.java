@@ -58,7 +58,7 @@ public class resp_serv extends HttpServlet {
 		if(ans)
 		{
 			GetCID gc=new GetCID(eqp_id);
-			String cust_id=gc.getCid();
+			int cust_id=gc.getCid();
 					
 			try
 			{

@@ -17,7 +17,7 @@ import servMon.contRun;
 
 public class pullEmailClass {
 	
-	public String getEmail(String custid) throws IOException
+	public String getEmail(int custid) throws IOException
 	{
 		
 		InputStream iStream=contRun.class.getClassLoader().getResourceAsStream("url.properties");

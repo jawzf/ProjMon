@@ -8,9 +8,9 @@ import dbConnection.ConnectionProvider;
 
 public class GetEmailClass {
 	String email="";
-	String custid="";
+	int custid=0;
 	
-	public GetEmailClass(String custid) {
+	public GetEmailClass(int custid) {
 		super();
 		this.custid = custid;
 	}
@@ -20,7 +20,7 @@ public class GetEmailClass {
 		try{
 			Connection con =ConnectionProvider.getCon();
 		    Statement st = con.createStatement();
-		    ResultSet rs =st.executeQuery("select email from statusTable where custid= '"+custid+"'");
+		    ResultSet rs =st.executeQuery("select email from statusTable where custid= "+custid+"");
 			   
 			    while(rs.next())
 			    {

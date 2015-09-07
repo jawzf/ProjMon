@@ -41,7 +41,7 @@ public class DownServlet extends HttpServlet {
 		downDAO dd=new downDAO(equipID);
 		dd.update();
 		GetCID gc=new GetCID(equipID);
-		String custid=gc.getCid();
+		int custid=gc.getCid();
 		try
 		{
 			URL url = new URL("http://"+yoorl+":"+port+"/MonitServ/SendEmail?custid="+custid+"&status=4&sday="+startDay+"&eday="+endDay);
