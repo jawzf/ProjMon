@@ -27,7 +27,7 @@ import dbConnection.ConnectionProvider;
 public class SendEmail extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-    String cid;int mess;
+    int cid;int mess;
     String mssg,sday,eday;
 // @see HttpServlet#HttpServlet()
  public SendEmail()
@@ -45,7 +45,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)t
 	// @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  cid=request.getParameter("custid");
+		  cid=Integer.parseInt(request.getParameter("custid"));
 		  mess=Integer.parseInt(request.getParameter("status"));
 		  sday=request.getParameter("sday");
 		  eday=request.getParameter("eday");
