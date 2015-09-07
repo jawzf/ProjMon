@@ -22,7 +22,7 @@ public class pullEmailClassTest {
 	public void testGetEmail()  {
 		pullEmailClass pec=new pullEmailClass();
 		try {
-			String res=pec.getEmail("32");
+			String res=pec.getEmail(1000000);
 			System.out.println(""+res);
 			assertNotNull(res);
 		} catch (IOException e) {

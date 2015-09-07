@@ -18,7 +18,7 @@ public class GetEmailClassTest {
 
 	@Test
 	public void testGetEmail() {
-		GetEmailClass gec=new GetEmailClass("yoloyolo");
+		GetEmailClass gec=new GetEmailClass(77777);
 		assertEquals("jokuriackal@gmail.com",gec.getEmail());
 	}
 

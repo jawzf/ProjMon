@@ -18,7 +18,7 @@ public class SendEmailClassTest {
 
 	@Test
 	public void testSend() {
- SendEmailClass sec=new SendEmailClass("yoloyolo");
+ SendEmailClass sec=new SendEmailClass(77777);
  assertEquals( true,sec.send("hi"));
 	}
 

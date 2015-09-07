@@ -9,10 +9,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmailClass {
-	String cid;
+	int cid;
 	
 	
-	public SendEmailClass(String cid) {
+	public SendEmailClass(int cid) {
 		super();
 		this.cid = cid;
 	}
