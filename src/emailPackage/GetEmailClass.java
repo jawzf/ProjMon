@@ -24,8 +24,8 @@ public class GetEmailClass {
 			   
 			    while(rs.next())
 			    {
-			    	System.out.println(rs.getString("EMAIL"));
-			    	email= rs.getString("EMAIL");
+			    	System.out.println(rs.getString("email"));
+			    	email= rs.getString("email");
 			    }  
 			}
 		catch(Exception e)

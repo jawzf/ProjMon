@@ -45,6 +45,7 @@ public class pullEmailClass {
 			while ((str = br.readLine()) != null) {
 				 responseJson.append(str);
 			}
+			System.out.println(responseJson);
 			JsonReader jsonReader = Json.createReader(new StringReader(new String(responseJson)));
 			JsonObject jsonObj = jsonReader.readObject();
 			jsonReader.close();
