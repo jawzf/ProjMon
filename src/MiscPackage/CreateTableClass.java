@@ -117,7 +117,7 @@ try {
 			Statement stmt; 
 		con=ConnectionProvider.getCon();
 		stmt=con.createStatement();  
-		String query="create or replace view equipment as select ont_id as equipid,customer_id as custid from ont union all SELECT pon_port_id as equipid, customer_id as custid from "+id+".ont";
+		String query="create or replace view equipment as select ont_id as equipid,customer_id as custid from "+id+".ont union all SELECT pon_port_id as equipid, customer_id as custid from "+id+".ont";
 		stmt.executeUpdate(query);
 		System.out.println("dTa");
 		
