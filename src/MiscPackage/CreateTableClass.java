@@ -72,7 +72,7 @@ try {
 			Statement stmt; 
 		con=ConnectionProvider.getCon();
 		stmt=con.createStatement();  
-		String query="create table downTable (equipID varchar(20) NOT NULL ,custID number(20) NOT NULL,address varchar(60) NOT NULL,email varchar(30) NOT NULL,status varchar(20) check( status in ('DOWN','IN-PROGRESS')))";
+		String query="create table downTable (equipID varchar(20) NOT NULL ,custID number(20) NOT NULL,address varchar(60) NOT NULL,email varchar(30),status varchar(20) check( status in ('DOWN','IN-PROGRESS')))";
 		stmt.executeUpdate(query);
 		System.out.println("dTa");
 
